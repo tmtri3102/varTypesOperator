@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>Bài 1</h1>
+		<form onsubmit="averageScore()">
+			<input
+				id="ly"
+				placeholder="Nhập điểm Lý"
+				type="number"
+				required
+			/>
+			<input
+				id="hoa"
+				placeholder="Nhập điểm Hoá"
+				type="number"
+				required
+			/>
+			<input
+				id="sinh"
+				placeholder="Nhập điểm Sinh"
+				type="number"
+				required
+			/>
+			<button type="submit">Tính</button>
+		</form>
+		<p id="averageScore"></p>
+		<br />
+
+		<h1>Bài 2</h1>
+		<form onsubmit="convert();">
+			<input
+				id="doC"
+				placeholder="Nhập nhiệt độ Celsius"
+				type="number"
+				required
+			/>
+			<button type="submit">Chuyển đổi</button>
+		</form>
+		<p id="convert"></p>
+		<br />
+
+		<h1>Bài 3 và 4</h1>
+		<form onsubmit=" circle();">
+			<input
+				id="radius"
+				placeholder="Nhập bán kính hình tròn"
+				type="number"
+				step="any"
+				required
+			/>
+			<button type="submit">Tính</button>
+		</form>
+		<p id="circle"></p>
+
+		<script>
+			// Bai 1
+			function averageScore() {
+				event.preventDefault();
+				let ly = parseFloat(document.getElementById("ly").value);
+				let hoa = parseFloat(document.getElementById("hoa").value);
+				let sinh = parseFloat(document.getElementById("sinh").value);
+				let avg = ((ly + hoa + sinh) / 3).toFixed(2);
+				document.getElementById(
+					"averageScore"
+				).textContent = `Điểm trung bình = ${avg}`;
+			}
+			// Bai 2
+			function convert() {
+				event.preventDefault();
+				let doC = parseFloat(document.getElementById("doC").value);
+				let doF = (doC * 9) / 5 + 32;
+				document.getElementById(
+					"convert"
+				).textContent = `Nhiệt độ Fahrenheit tương ứng với ${doC}°C là ${doF.toFixed(
+					2
+				)}°F`;
+			}
+			// Bai 3
+			function circle() {
+				event.preventDefault();
+				let r = parseFloat(document.getElementById("radius").value);
+				let chuVi = (2 * Math.PI * r).toFixed(2);
+				let dienTich = (Math.PI * r * r).toFixed(2);
+				document.getElementById(
+					"circle"
+				).textContent = `Chu vi = ${chuVi}, Diện tích = ${dienTich}`;
+			}
+		</script>
+	</body>
+</html>
